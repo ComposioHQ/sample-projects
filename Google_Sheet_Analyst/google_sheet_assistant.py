@@ -10,13 +10,15 @@ llm = ChatOpenAI(model="gpt-4o")
 composio_toolset = ComposioToolSet()
 tools = composio_toolset.get_tools(apps=[App.GOOGLESHEETS])
 
+sheet_id = input("Enter sheet id (it is found in the shared url):")
+
 # Define agent
 google_sheets_agent = Agent(
     role="Google Sheets Roadmap Analyzer",
-    goal="Summarize the project roadmap progress from the 'project_roadmap' sheet",
+    goal=f"Summarize the project roadmap progress from the sheetid: {sheet_id}",
     backstory=(
         "You are an AI agent specialized in analyzing Google Sheets data. "
-        "Your current task is to review the 'project_roadmap' sheet and provide "
+        f"Your current task is to review the {sheet_id} sheet and provide "
         "a summary of the roadmap progress so far, highlighting completed milestones "
         "and upcoming tasks."
     ),
@@ -26,10 +28,11 @@ google_sheets_agent = Agent(
 )
 
 task = Task(
-    description="Analyze the 'project_roadmap' sheet and summarize the roadmap progress so far",
+    description=f"Analyze the 'project_roadmap' sheet with sheet id {sheet_id} and summarize the roadmap progress so far",
     agent=google_sheets_agent,
     expected_output="A concise summary of the project roadmap progress, including completed milestones, current status, and upcoming key tasks",
 )
+
 
 my_crew = Crew(agents=[google_sheets_agent], tasks=[task])
 
