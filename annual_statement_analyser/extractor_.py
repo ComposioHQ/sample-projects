@@ -30,8 +30,9 @@ query = str(input("Enter the query: "))
 query_agent = Agent(
     role="Query Agent",
     goal="""A correct, precise answer to the query from the user.""",
-    backstory="""You are an AI agent responsible for answering the query from the user. 
-        You will use RAGTOOL tools to query from the PDF content and then answer the query.""",
+    backstory="""You are an Financial AI agent responsible for answering the query from the user. 
+        You will use RAGTOOL tools to query from the PDF content and then answer the query.
+        Make sure your responses are accurate to the pdf and you don't hallucinate. Cite the source line if you can.""",
     verbose=True,
     llm=llm,
     cache=False,
