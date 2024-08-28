@@ -2,8 +2,6 @@
 
 This project is designed to search for good locations and list all the places and finding all places in a specific website.
 
-# How does Composio help?
-
 Composio gives the AI Agent access to Google Maps and the ability to scrape Website content. This allows it to perform actions such as scraping the website content and finding all the places mentioned in the website and also list all the places after performing a search.
 
 # Steps to run 

@@ -2,8 +2,6 @@
 
 This project is designed to analyse annual statements. It reads the pdf contents and builds a QnA RAG system that you can query.
 
-# How does Composio help?
-
 Composio gives the AI Agent the ability to create a RAG system and allows querying of this vector store. Everything from reading the pdf content to storing it in a vector store to querying is is performed autonomously by the AI Agent. 
 
 # Steps to run 
